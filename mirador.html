@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mirador</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxb5e1UFW4nOgM4rXQPjRlANARpaOl9Xs&callback=initMap"></script>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <div style="text-align: right; margin-top: 20px; margin-right: 20px;">
+        <a href="servicios.html"><button type="button" class="btn btn-primary">Volver</button></a>
+    </div>
+    <div class="container" style="text-align: center; margin-top: 50px;">
+        <div class="row">
+            <div class="col">
+                <img src="caminata2.jpg" alt="" style="height: 500px;" width="500px">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col">
+                <p>bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla </p>
+            </div>
+        </div>
+    </div>
+
+<script>
+                /**
+             * @license
+             * Copyright 2019 Google LLC. All Rights Reserved.
+             * SPDX-License-Identifier: Apache-2.0
+             */
+            let map;
+            const chicago = { lat: 41.85, lng: -87.65 };
+
+            /**
+             * Creates a control that recenters the map on Chicago.
+             */
+            function createCenterControl(map) {
+            const controlButton = document.createElement("button");
+
+            // Set CSS for the control.
+            controlButton.classList.add('buttonStyle');
+
+            controlButton.textContent = "Center Map";
+            controlButton.title = "Click to recenter the map";
+            controlButton.type = "button";
+            // Setup the click event listeners: simply set the map to Chicago.
+            controlButton.addEventListener("click", () => {
+                map.setCenter(chicago);
+            });
+            return controlButton;
+            }
+
+            function initMap() {
+            map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 4,
+                center: { lat: 49.496675, lng: -102.65625 },
+            });
+
+            var georssLayer = new google.maps.KmlLayer({
+                url: "http://api.flickr.com/services/feeds/geo/?g=322338@N20&lang=en-us&format=feed-georss",
+            });
+            georssLayer.setMap(map);
+
+            // Create the DIV to hold the control.
+            const centerControlDiv = document.createElement("div");
+            // Create the control.
+            const centerControl = createCenterControl(map);
+
+            // Append the control to the DIV.
+            centerControlDiv.appendChild(centerControl);
+            map.controls[google.maps.ControlPosition.TOP_CENTER].push(
+                centerControlDiv
+            );
+            }
+
+            window.initMap = initMap;
+</script>
+<div id="map" style="height: 400px; margin-left: 200px; margin-right: 200px;"></div><br>
+
+</body>
+</html>
