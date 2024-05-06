@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="clima">
+
+    </div>
+     <!-- Scripts -->
+     <script>
+        const settings = {
+	    async: true,
+	    crossDomain: true,
+	    url: 'https://yahoo-weather5.p.rapidapi.com/weather?location=Punta%20Arena&format=json&u=f',
+	    method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '7af933f2e7msh81128a4736d9d5cp16fc4ajsn8f282a61a9a9',
+		'X-RapidAPI-Host': 'yahoo-weather5.p.rapidapi.com'
+	}
+};
+
+$.ajax(settings).done(function (response) {
+	console.log(response);
+    console.log(response.forecasts);
+   
+    //nombre ciudad
+
+    $("#clima").append("<h1>" + response.location.city + "," + " " + response.location.country + " " + "</h1>");
+    //clima
+    $.each(response.forecasts, function(index, forecast) {
+        $("#clima").append("<p>" + forecast.day + " " + forecast.high + "°C" + " " +forecast.low + "°C" + " " + forecast.text + "</p>");})
+});
+     </script>
+</body>
+</html>
