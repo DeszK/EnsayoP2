@@ -32,7 +32,7 @@ $.ajax(settings).done(function (response) {
     $("#clima").append("<h1>" + response.location.city + "," + " " + response.location.country + " " + "</h1>");
     //clima
     $.each(response.forecasts, function(index, forecast) {
-        $("#clima").append("<p>" + forecast.day + " " + forecast.high + "°C" + " " +forecast.low + "°C" + " " + forecast.text + "</p>");})
+        $("#clima").append("<p>" + forecast.day + " " + "Temperatura Alta: "+ forecast.high + "°C" + " " + "Temperatura Baja: "+forecast.low + "°C" + " " + "Tipo de Clima: " + forecast.text + "</p>");})
 });
      </script>
 </body>
