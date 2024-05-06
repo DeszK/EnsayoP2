@@ -101,9 +101,11 @@
                     return false;
                 }else{
                     $("mensaje1").fadeOut();
-                    if(correo == "" || !expr.test(correo)){
-                        $("#mensaje2").fadeIn();
+                    if(celular == ""){
+                        $("mensaje2").fadeIn();
                         return false;
+                    }else{
+                        $("mensaje2").fadeOut;
                     }
                 }
 
