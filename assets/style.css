@@ -11,3 +11,6 @@ body{
 .card-body{
     text-align: justify;
 }
+.error-input {
+    border: 1px solid red;
+}

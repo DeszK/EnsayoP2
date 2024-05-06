@@ -81,63 +81,73 @@
     </form>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function(){
         // Ocultar los mensajes de error al cargar la página
         $(".errores").hide();
 
         $("#formulario").submit(function(event){
-            var nombre = $("#itNombre").val();
-            var celular = $("#itCelular").val();
-            var correo = $("#itEmail").val();
-            var pais = $("#itPais").val();
-            var ciudad = $("#itCiudad").val();
-            var consulta = $("#itConsulta").val();
+            var nombre = $("#itNombre");
+            var celular = $("#itCelular");
+            var correo = $("#itEmail");
+            var pais = $("#itPais");
+            var ciudad = $("#itCiudad");
+            var consulta = $("#itConsulta");
             var valido = true;
 
             // Verificar si los campos están vacíos y mostrar mensajes de error
-            if(nombre.trim() === "") {
+            if(nombre.val().trim() === "") {
                 $("#mensaje1").text("Por favor, escribe tu nombre").show();
+                nombre.addClass("error-input");
                 valido = false;
             } else {
                 $("#mensaje1").hide();
+                nombre.removeClass("error-input");
             }
 
-            if(celular.trim() === "") {
+            if(celular.val().trim() === "") {
                 $("#mensaje2").text("Por favor, ingresa tu número de celular").show();
+                celular.addClass("error-input");
                 valido = false;
             } else {
                 $("#mensaje2").hide();
+                celular.removeClass("error-input");
             }
 
-            if(correo.trim() === "") {
+            if(correo.val().trim() === "") {
                 $("#mensaje3").text("Por favor, ingresa un correo electrónico válido").show();
+                correo.addClass("error-input");
                 valido = false;
             } else {
                 $("#mensaje3").hide();
+                correo.removeClass("error-input");
             }
 
-            if(pais.trim() === "") {
+            if(pais.val().trim() === "") {
                 $("#mensaje4").text("Por favor, ingresa tu país").show();
+                pais.addClass("error-input");
                 valido = false;
             } else {
                 $("#mensaje4").hide();
+                pais.removeClass("error-input");
             }
 
-            if(ciudad.trim() === "") {
+            if(ciudad.val().trim() === "") {
                 $("#mensaje5").text("Por favor, ingresa tu ciudad").show();
+                ciudad.addClass("error-input");
                 valido = false;
             } else {
                 $("#mensaje5").hide();
+                ciudad.removeClass("error-input");
             }
 
-            if(consulta.trim() === "") {
+            if(consulta.val().trim() === "") {
                 $("#mensaje6").text("Por favor, escribe el motivo de tu consulta").show();
+                consulta.addClass("error-input");
                 valido = false;
             } else {
                 $("#mensaje6").hide();
+                consulta.removeClass("error-input");
             }
 
             // Si algún campo está vacío, detener el envío del formulario
