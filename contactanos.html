@@ -96,56 +96,21 @@
             var consulta = $("#itConsulta").val();
             var valido = true;
 
-            // Verificar si los campos están vacíos y mostrar mensajes de error
-            if(nombre == "") {
-                $("#mensaje1").text("Por favor, escribe tu nombre").show();
-                valido = false;
-            } else {
-                $("#mensaje1").hide();
-            }
+                if( nombre == ""){
+                    $("mensaje1").fadeIn();
+                    return false;
+                }else{
+                    $("mensaje1").fadeOut();
+                    if(correo == "" || !expr.test(correo)){
+                        $("#mensaje2").fadeIn();
+                        return false;
+                    }
+                }
 
-            if(celular == "") {
-                $("#mensaje2").text("Por favor, ingresa tu número de celular").show();
-                valido = false;
-            } else {
-                $("#mensaje2").hide();
-            }
 
-            if(correo == "") {
-                $("#mensaje3").text("Por favor, ingresa un correo electrónico válido").show();
-                valido = false;
-            } else {
-                $("#mensaje3").hide();
-            }
-
-            if(pais == "") {
-                $("#mensaje4").text("Por favor, ingresa tu país").show();
-                valido = false;
-            } else {
-                $("#mensaje4").hide();
-            }
-
-            if(ciudad == "") {
-                $("#mensaje5").text("Por favor, ingresa tu ciudad").show();
-                valido = false;
-            } else {
-                $("#mensaje5").hide();
-            }
-
-            if(consulta == "") {
-                $("#mensaje6").text("Por favor, escribe el motivo de tu consulta").show();
-                valido = false;
-            } else {
-                $("#mensaje6").hide();
-            }
-
-            // Si algún campo está vacío, detener el envío del formulario
-            if(!valido) {
-                event.preventDefault();
-            }
+            });
         });
-    });
-</script>
+    </script>
 
 
 </body>
