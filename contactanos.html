@@ -82,6 +82,7 @@
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function(){
         // Ocultar los mensajes de error al cargar la página
@@ -96,21 +97,56 @@
             var consulta = $("#itConsulta").val();
             var valido = true;
 
-                if( nombre == ""){
-                    $("mensaje1").fadeIn();
-                    return false;
-                }else{
-                    $("mensaje1").fadeOut();
-                    if(correo == "" || !expr.test(correo)){
-                        $("#mensaje2").fadeIn();
-                        return false;
-                    }
-                }
+            // Verificar si los campos están vacíos y mostrar mensajes de error
+            if(nombre.trim() === "") {
+                $("#mensaje1").text("Por favor, escribe tu nombre").show();
+                valido = false;
+            } else {
+                $("#mensaje1").hide();
+            }
 
+            if(celular.trim() === "") {
+                $("#mensaje2").text("Por favor, ingresa tu número de celular").show();
+                valido = false;
+            } else {
+                $("#mensaje2").hide();
+            }
 
-            });
+            if(correo.trim() === "") {
+                $("#mensaje3").text("Por favor, ingresa un correo electrónico válido").show();
+                valido = false;
+            } else {
+                $("#mensaje3").hide();
+            }
+
+            if(pais.trim() === "") {
+                $("#mensaje4").text("Por favor, ingresa tu país").show();
+                valido = false;
+            } else {
+                $("#mensaje4").hide();
+            }
+
+            if(ciudad.trim() === "") {
+                $("#mensaje5").text("Por favor, ingresa tu ciudad").show();
+                valido = false;
+            } else {
+                $("#mensaje5").hide();
+            }
+
+            if(consulta.trim() === "") {
+                $("#mensaje6").text("Por favor, escribe el motivo de tu consulta").show();
+                valido = false;
+            } else {
+                $("#mensaje6").hide();
+            }
+
+            // Si algún campo está vacío, detener el envío del formulario
+            if(!valido) {
+                event.preventDefault();
+            }
         });
-    </script>
+    });
+</script>
 
 
 </body>
