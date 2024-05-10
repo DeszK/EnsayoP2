@@ -113,6 +113,10 @@
                 $("#mensaje3").text("Por favor, ingresa un correo electrónico válido").show();
                 correo.addClass("error-input");
                 valido = false;
+            } else if (!correo.val().includes('@')) {
+                $("#mensaje3").text("Por favor, ingresa un correo electrónico válido que contenga al menos un '@'").show();
+                correo.addClass("error-input");
+                valido = false;
             } else {
                 $("#mensaje3").hide();
                 correo.removeClass("error-input");
