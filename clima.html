@@ -56,17 +56,22 @@
 	}
 };
 
+
+
 $.ajax(settings).done(function (response) {
 	console.log(response);
     console.log(response.forecasts);
    
     //nombre ciudad
 
-    $("#clima").append("<h1>" + response.location.city + "," + " " + response.location.country + " " + "</h1>");
+    $("#clima").append("<h1 style='text-align: center;'>" + response.location.city + "," + " " + response.location.country + " " + "</h1>");
+    
     //clima
+    
     $.each(response.forecasts, function(index, forecast) {
-        $("#clima").append("<p>" + forecast.day + " " + "Temperatura Alta: "+ forecast.high + "°C" + " " + "Temperatura Baja: "+forecast.low + "°C" + " " + "Tipo de Clima: " + forecast.text + "</p>");})
+        $("#clima").append("<p style='text-align: center;'>" + forecast.day + " " + "Temperatura Alta: "+ forecast.high + "°C" + " " + "Temperatura Baja: "+forecast.low + "°C" + " " + "Tipo de Clima: " + forecast.text + "</p>");})
 });
+  
      </script>
 </body>
 </html>
