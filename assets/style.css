@@ -14,3 +14,11 @@ body{
 .error-input {
     border: 1px solid red;
 }
+
+.city {
+    text-align: center;  
+}
+
+.forecast {
+    text-align: center;
+}
